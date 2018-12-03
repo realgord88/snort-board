@@ -27,7 +27,7 @@ SECRET_KEY = 'sn^t_7u+1aq!3_k!#a_*_!_d_88gp%0hy2k7n@z=tgqx6$2((6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0', '127.0.0.1']
 
 
 # Application definition
@@ -41,14 +41,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'frontend_app',
-    'backend_app'
+    'backend_app',
+    'corsheaders',
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -73,6 +78,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend_app.wsgi.application'
+
+
 
 
 # Database
@@ -129,3 +136,5 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_URL = '/static/'
+
+CORS_ORIGIN_ALLOW_ALL = True

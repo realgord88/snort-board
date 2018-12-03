@@ -17,11 +17,13 @@ from django.conf.urls import *
 from django.contrib import admin
 from rest_framework import routers
 from rest_framework.urlpatterns import format_suffix_patterns
-from .views import StatusViewSet, ChangeStatus
+from .views import StatusViewSet, ChangeStatus, GetAlerts, IptablesAdd
 
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/changestatus', ChangeStatus.as_view()),
+    url(r'^api/alerts/', GetAlerts.as_view()),
+    url(r'^api/iptables/', IptablesAdd.as_view()),
     url(r'', include('frontend_app.urls', namespace='frontend')),
 ]

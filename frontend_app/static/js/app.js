@@ -5,7 +5,7 @@ app.controller('status', function QuestionController($scope, $http){
 	$scope.changestatus = function (text){
 	
 	$http.get('api/changestatus').success(function(data) {
-        $scope.status=data.status;
+        $scope.status=data;
         });
 	};
 });
